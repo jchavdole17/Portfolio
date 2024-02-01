@@ -1,0 +1,29 @@
+File Name: project1_jac23763_taa2425.cpp
+Authors: Juan Chavarria, Talal Al-Otaibi
+Date: 10/01/2023
+Assignment Number 1
+CS 105C, Section 52440, Fall 2023
+Instructor: Dr. Palacios
+
+HOW TO RUN: Type: "g++ -Wall -Werror project1_jac23763_taa2425.cpp" in the linux command prompt. It should create a default output of "a.out'. After the first command, type "./a.out" to run the file.
+
+Format of txt file: We describe the approach/algorithms of each function in the same order of the C++ code.
+
+
+DATA TYPES
+
+story (struct): This struct has 3 attributes, which correspond to each story in the input file. It has two string variables to hold the story title (named headline) and URL. There is also an int variable struct member to hold the popularity score.
+
+
+FUNCTIONS
+
+display_stories(Talal): This is a void function, so it does not return any data/values. The inputs/arguments to this function are the following: The pointer to the array of Story structures, the mode of type integer of the popularity scores derived from the input file, and the size of type integer representing the size of the array of structures. The function utilizes the value of -1 to represent the case of no mode being present. The output to the terminal depends on the presence of a mode (i.e it is either -1 or greater than zero). In the case if a mode is determined, the mode is outputted and the stories with popularity scores equal to this mode are outputted. This process is done by iterating over the size of the array of structures, and checking in each instance, if the score of a story structure is equal to the mode. The respective title (named headline) and URL members of the Story struct are outputted to the terminal by using pointer notation for dereferencing. In the case where this is no mode, "Mode: no mode was found" is explicitly outputted. Furthermore, in a for loop, the first 5 story titles and URLs are outputted to the terminal. However, one must note that if there are less than 5 stories in the file (i.e size is less than 5), then it is simply the case that all story titles and URLs are outputted.
+
+findMode (Juan): This function returns the mode (int) of the popularity scores in the input file. This function takes in a pointer to an array of structs that holds all the story details (more information on what info it holds is in the story data type description) mentioned in the "stories" input file. The size of this array is also passed to correctly traverse it in this function. The function uses two arrays (score_arr & count_arr) with a parallel array approach to keep track of the individual score of a story and the count of how many times that popularity score of that story showed up in the file. A mode and frequency variable are created as well to store the popularity score of the mode and the frequency of its appearance. Then, the code uses 3 independent for loops to store all the scores in the score_arr, then to find the number of times a score appeared in the file and store it in count_arr, and lastly, one to traverse count_arr to find the maximum count, which would locate the mode. Parallel arrays allow us to then extract the mode value from score_arr. The last step is to return this result if it is found; if the frequency value is 1, it means that all the popularity scores showed up once in the file, so there is no mode so we return -1.
+
+read_stories (Juan): This is a void function, so it doesn't return any variables/data. This function takes in a pointer to an array of 'story' structs, and an integer that says how many stories are in the file. The function uses num_stories, which was read from the input file in main, to iterate through the total number of stories in the input file. We know that each story will have a headline, URL, and a score, so we call getline() 3 times each iteration to extract these values per story and insert them in the array of structs that the function takes as an input. Since the array is passed as a pointer, we are able to acces the results outside of the scope of this function. We could have also dynamically allocated memory within the function and returned the array, but we wanted to practice passing pointers into an array. 
+
+
+main(Both): Main is a function that returns an integer (as expected with all C++ programs). It returns 0 upon a succesful call and execution. It serves to define the important variables passed as arguments into the functions. The filename is one important argument of type string and is initialized by prompting for user input in terminal. numStories, an integer, is used to define the size of the array of Story structures using dynamic memory allocation at runtime (however it must be explicitly converted to an integer by using Stoi, a function which is part of the standard library, as getline only accepts strings). The mode is also initalized before being determined. Upon dynamically allocating memory using a pointer to the array of structures, read_stories is called, thus populating the values pointed to by the pointer to the array of structures. Then, findMode is called to return the mode. Finally, the mode, along with the pointer to the array of structures and number of stories are used to call the display_stories function to output to the terminal. 
+
+Assumptions: We assume there are no blank lines between stories or leading whitespace characters that may complicate populating the array of structures. We assume that the scores are only integers and must not be rounded or type-casted to type int. Assumption of correct match between number of stories at the top of the input file and the actual number of stories placed in the file.

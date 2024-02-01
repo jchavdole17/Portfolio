@@ -1,0 +1,42 @@
+Capsule #1
+McLain 4
+Ashburn 5
+Lasso 3
+Hemme 3
+Total Guests: 15
+Remaining capacity: 1
+
+Capsule #2
+Akalonu 3
+Fong 8
+Total Guests: 11
+Remaining capacity: 5
+
+Capsule #3
+James 12
+Total Guests: 12
+Remaining capacity: 4
+
+Capsule #4
+Lewis 10
+Mistry 5
+Total Guests: 15
+Remaining capacity: 1
+
+Capsule #5
+Hicks 3
+Ellsworth 2
+Mikel 8
+Total Guests: 13
+Remaining capacity: 3
+
+Capsule #6
+Su 5
+King 4
+Total Guests: 9
+Remaining capacity: 7
+
+Overall Number of guests: 75
+Overall number of capsules: 6
+Capsule capacity: 16
+Percentage Utilization: 75/(6*16) = 78.1%
