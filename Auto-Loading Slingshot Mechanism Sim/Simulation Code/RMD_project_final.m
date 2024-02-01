@@ -136,6 +136,7 @@ xlabel('\theta_2 (deg)');ylabel('Coupler force F_c (N)'); title('Coupler force (
 
 % Setup joint positions, grounds, and rotate coordinates to global as
 % needed
+
 figure(6)
 
 t2 = 0:1:360;
@@ -196,6 +197,7 @@ vidObj.FrameRate = floor(nFrames/duration);% set frame rate
 vidObj.Quality = 100; % max vid quality
 
 open(vidObj);
+
 % loop for animation
 for n = 1:3: length(t2)
 
